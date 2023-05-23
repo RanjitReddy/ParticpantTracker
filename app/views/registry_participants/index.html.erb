@@ -1,0 +1,5 @@
+<% @registry_participants.each do |r| %>
+    <%= Participant.find(r.participant_id).name %>
+    <%= r.coordinator_email %><br/><br/>
+     
+<% end %>

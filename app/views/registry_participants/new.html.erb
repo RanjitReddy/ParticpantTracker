@@ -1,0 +1,7 @@
+<h1> Add to Registry </h1>
+
+<%= form_for(@registry_participant) do |f| %>
+    <%= f.collection_select :registry_id, Registry.all, :id, :name, prompt: true %>
+    <%= f.hidden_field :participant_id, value: @participant.id %>
+    <%= f.submit value='Add To Registry' %>
+<% end %>

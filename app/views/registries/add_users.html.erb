@@ -1,0 +1,14 @@
+<h1><%= @registry.name %> at <%= @registry.location %></h1>
+
+<h3> Add Coordiantor </h3>
+
+<%= form_for(@registry_coordinator) do |f| %>
+    <%= f.collection_select :coordinator_id, Coordinator.all, :id, :name, prompt: true %>
+    <%= f.submit value: 'Add Coordinator' %>
+<% end %>
+
+<h3> Add Participant </h3>
+<%= form_for(@registry_participant) do |f| %>
+    <%= f.collection_select :participant_id, Participant.all, :id, :last_name, prompt: true %>
+    <%= f.submit value: 'Add Participant' %>
+<% end %>

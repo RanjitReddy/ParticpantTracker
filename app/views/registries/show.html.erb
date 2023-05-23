@@ -1,0 +1,50 @@
+<h1> Registry Details </h1>
+<h3> Name: <%= @registry.name %> </h3>
+<h3> Location: <%= @registry.location %> </h3>
+<h3>Status: <%= @registry.status %> </h3>
+
+<h4>Coordinator(s):</h4>  
+  <ul>
+    <% @registry.find_coordinators.each do |c| %>
+      <li><%= c.name %>, <%=c.email%>, <%=c.phone %></li>
+    <% end %>
+  </ul>
+
+<h4> Participants: </h4>
+
+<% if @registry.participants.length < 1 %>
+  <p> No Participants to Display </p>
+<% else %>
+  <table>
+    <tr>
+      <th>Coordinator</th>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>DOB</th>
+    </tr>
+    
+
+  
+    <% @registry.participants.each do |p| %>
+      <tr>
+        <td>  </td>
+        <td><%= link_to p.name, p %></td>
+        <td><%= p.gender %></td>
+        <td><%= p.date_of_birth %></td>
+      </tr>
+    <% end %>
+    <table>
+  
+
+  
+
+</table>
+<% end %>
+
+<h4><%= link_to 'Update Registry', edit_registry_path %></h4>
+<% if @registry.status == 'Open' %>
+<h4><%= link_to 'Add Participant', add_participant_path %></h4>
+<h4><%= link_to 'Add Coordinator', add_coordinator_path %></h4>
+<% end %>
+
+

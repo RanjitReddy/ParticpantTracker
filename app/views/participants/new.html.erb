@@ -1,0 +1,27 @@
+<h1> Add a Participant </h1>
+
+<% if @participant.errors.any? %>
+  <h2 style='color: red'> There Was an Error with this Participant from being saved </h2>
+  <ul>
+  <% @participant.errors.full_messages.each do |error| %>
+    <li style='color: red'><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for(@participant) do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/><br/>
+  <%= f.label :gender %><br/>
+  <%= f.text_field :gender %><br/><br/>
+  <%= f.label 'Date of Birth' %><br/>
+  <%= f.date_field :date_of_birth %><br/><br/>
+  <%= f.label :email %><br/>
+  <%= f.text_field :email %><br/><br/>
+  <%= f.label :phone %><br/>
+  <%= f.text_field :phone %><br/><br/>
+  <%= f.label 'Method of Contact:' %><br/>
+  <%= f.radio_button :method_of_contact, 'EMAIL' %>Email<br/>
+  <%= f.radio_button :method_of_contact, 'PHONE' %>Phone<br/><br/>
+  <%= f.submit %>
+<% end %>

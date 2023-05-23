@@ -1,0 +1,13 @@
+<h1> Register <%= @participant.name %> </h1>
+
+<%= form_for(@registry_participant) do |f| %>
+    <%= f.collection_select :registry_id, Registry.all, :id, :name, prompt: true %><br/><br/>
+    <%= f.hidden_field :participant_id, value: @participant.id %>
+    <%= f.label :coordinator_email %><br/>
+    <%= f.collection_select :coordinator_email, Coordinator.all, :email, :email, prompt: true %><br/><br/>
+    <%= f.label :remarks %><br/>
+    <%= f.text_field :remarks %><br/><br/>
+    <%= f.label :enrollment_date %><br/>
+    <%= f.date_field :enrollment_date, value: DateTime.now.strftime('%Y-%m-%d') %><br/><br/>
+    <%= f.submit value: 'Register' %> 
+<% end %>

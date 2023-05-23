@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ParticipantTracker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <table>
+        <tr>
+          <td><%= link_to 'Registries', registries_path %></td>
+          <td><%= link_to 'Add Registry', new_registry_path %></td>
+          <td><%= link_to 'Coordinators', coordinators_path %></td>
+          <td><%= link_to 'Add Coordinator', new_coordinator_path %></td>
+          <td><%= link_to 'Participants', participants_path %></td>
+          <td><%= link_to 'Add Participant', new_participant_path %></td>
+        </tr>
+      </table>
+    </header>
+
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<h1> Edit Information for <%= @coordinator.name %> </h1>
+
+<%= form_for(@coordinator) do |f| %>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %><br/><br/>
+    <%= f.label :email %><br/>
+    <%= f.text_field :email %><br/><br/>
+    <%= f.label :phone %><br/>
+    <%= f.text_field :phone %><br/><br/>
+    <%= f.submit %>
+<% end %>
+
+<br/><br/>
+
+

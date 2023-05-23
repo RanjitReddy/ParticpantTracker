@@ -1,0 +1,17 @@
+<h1> Participants </h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Contact Method</th>
+  </tr>
+  <% @participants.each do |p| %>
+    <tr>
+      <td><%= link_to p.name, p %></td>
+      <td><%= p.phone %></td>
+      <td><%= p.email %></td>
+      <td><%= p.method_of_contact %></td>
+    </tr>
+  <% end %>
+</table>

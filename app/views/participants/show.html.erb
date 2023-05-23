@@ -1,0 +1,27 @@
+<h1> Profile for <%= @participant.name %> </h1>
+<h4>DOB: <%= @participant.date_of_birth %></h4>
+<h4>Gender: <%= @participant.gender %></h4>
+<% if @participant.method_of_contact == 'PHONE' %>
+  <h4> Contact via Phone: <%= @participant.phone %> </h4>
+<% else %>
+  <h4> Contact via Email: <%= @participant.email %> </h4>
+<% end %>
+
+<h3> Registries: </h3>
+
+<% if @participant.registries.length < 1 %>
+  <h4> Not Currently Enrolled</h4>
+<% else %>
+
+  <ul>
+    <% @participant.registries.each do |r| %>
+      <li><%= link_to r.name, r %>, <%= r.location %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<br/>
+
+<%= link_to 'Update Profile', edit_participant_path %>
+<br/><br/>
+<%= link_to 'Add to a Registry', add_registry_path %>

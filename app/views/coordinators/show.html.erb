@@ -1,0 +1,13 @@
+<h1> Coordinator Profile: <%= @coordinator.name %> </h1>
+<h4>
+    Email: <%= @coordinator.email %><br/>
+    Phone: <%= @coordinator.phone %>
+</h4>
+
+<% @coordinator.registries.each do |r| %>
+    <li><%= link_to r.name, r%>, <%= r.location %></li>
+<% end %>
+
+<br/><br/>
+
+<%= link_to 'Update Coordinator Information', edit_coordinator_path %> <br/>

@@ -1,0 +1,30 @@
+<h1> Coordinators </h1> <%= link_to 'Export to CSV', coordinators_path(format: :csv) %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Registries</th>
+    </tr>
+    
+<% @coordinators.each do |c| %>
+    <tr>
+        <td><%= link_to c.name, c %></td>
+        <td><%= c.email %></td>
+        <td><%= c.phone %></td>
+        <td>
+        <ul>
+        <% if c.registries.length < 1 %>
+        <li>N/A </li>
+        <% else %>
+        <% c.registries.each do |r| %>
+            <li><%= link_to r.name, r%> - <%= r.location %> - <%= r.status %></li>
+        <% end %>
+        </ul>
+        </td>
+        <% end %>
+    </tr>
+<% end %>
+</table>
+
+

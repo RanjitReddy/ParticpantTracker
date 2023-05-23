@@ -1,0 +1,17 @@
+<h1> Add Registry Coordinator to <%= @registry.name %> at <%= @registry.location %></h1>
+
+<p> Coordinators already added: <p>
+<% if @registry.coordinators.length < 1 %>
+    <p>No Coordinators Yet </p> 
+<% end %>
+
+<% @registry.coordinators.each do |c| %>
+    <%= c.name %>
+<% end %>
+
+<%= form_for(@registry_coordinator) do |f| %>
+    <%= f.hidden_field :registry_id, @registry.id %>
+    <%= f.collection_select :coordinator_id, Coordinator.all, :id, :name, prompt: true %>
+    <%= f.submit value: 'Add Coordinator' %>
+<% end %>
+

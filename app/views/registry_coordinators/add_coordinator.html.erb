@@ -1,0 +1,7 @@
+<h1> Add to Coordinator to <%= @registry.name %> at <%= @registry.location %> </h1>
+
+<%= form_for(@registry_coordinator) do |f| %>
+    <%= f.collection_select :coordinator_id, Coordinator.all, :id, :name, prompt: true %><br/><br/>
+    <%= f.hidden_field :registry_id, value: @registry.id %>
+    <%= f.submit value='Add Coordinator' %>
+<% end %>

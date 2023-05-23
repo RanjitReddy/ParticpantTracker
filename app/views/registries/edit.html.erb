@@ -1,0 +1,12 @@
+<h1> Edit Details for <%= @registry.name %> at <%= @registry.location %></h1>
+
+<%= form_for(@registry) do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/><br/>
+  <%= f.label :location %><br/>
+  <%= f.text_field :location %><br/><br/>
+  <%= f.label 'Status:' %><br/>
+  <%= f.radio_button :status, 'Open' %> Open<br/>
+  <%= f.radio_button :status, 'Closed' %> Closed<br/><br/>
+  <%= f.submit %>
+<% end %>

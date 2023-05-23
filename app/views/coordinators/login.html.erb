@@ -1,0 +1,9 @@
+<h1> Welcome! </h1>
+<h2> Enter Your Coordinator Credentials: </h2>
+<%= form_for(@coordinator) do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    <%= f.submit %>
+<% end %>
+
+<p> email: </p>
